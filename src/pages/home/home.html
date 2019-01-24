@@ -6,20 +6,11 @@
 
 <ion-content>
 	<!-- S轮播图 -->
-	<ion-slides pager loop="true" autoplay="3000" class="focus">
-
-		<ion-slide>
-			<img src="../../assets/imgs/slide01.png" />
-		</ion-slide>
-
-		<ion-slide>
-			<img src="../../assets/imgs/slide02.png" />
-		</ion-slide>
-
-		<ion-slide>
-			<img src="../../assets/imgs/slide03.jpg" />
-		</ion-slide>
-	</ion-slides>
+	<ion-slides *ngIf="focusList.length>0" class="focus" pager  loop="true" autoplay="3000">    
+      <ion-slide *ngFor="let item of focusList">
+          <img [src]="config.apiUrl+item.pic" />
+      </ion-slide>         
+   </ion-slides>
 	<!-- E轮播图 -->
 	<!-- S精品推荐 -->
 	<section class="recommend">
