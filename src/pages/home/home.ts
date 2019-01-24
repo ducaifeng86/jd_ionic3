@@ -9,26 +9,32 @@ import {Http,Jsonp} from "@angular/http";
 })
 export class HomePage {
 	public focusList=[];  /*数组 轮播图*/
-	public recList=[];
-  public recListWidth='';
+	public bestList=[];   /*精品推荐*/
+  public bestListWidth=''; /*精品推荐数据长度*/
+ 	public hotList = [];//热门商品
   constructor(public navCtrl: NavController,public config:ConfigProvider,public jsonp:Jsonp,public httpService:HttpServicesProvider) {
-	    for(let i=0;i<10;i++){
-	    	this.recList.push({
-	    		pic:'assets/imgs/0'+i+'.jpg',
-	    		title:'第'+i+'条'
-	    	});
-	    this.recListWidth=this.recList.length*92+'px';
-    }
-	  console.log(this.config.apiUrl);
-	  this.getFocus();
+	  this.getFocus();//轮播图
+    this.getBestProduct();//调用精品推荐
+    this.getHotProduct();//热门产品
   }
-   //轮播图
+   
   getFocus(){ 
     var that=this;
-    
     this.httpService.requestData('api/focus',function(data){
-       console.log(data);
         that.focusList=data.result;
     })
+  }
+  
+  getBestProduct(){
+    this.httpService.requestData('api/plist?is_best=1',(data)=>{
+        this.bestList=data.result;
+        this.bestListWidth=this.bestList.length*92+'px'; 
+    })
+  }
+  
+  getHotProduct(){
+  	this.httpService.requestData('api/plist?is_best=1',(data)=>{
+  		this.hotList = data.result;
+  	});
   }
 }
