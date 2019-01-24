@@ -1,17 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>首页</ion-title>
+	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+	<!-- S轮播图 -->
+	<ion-slides pager loop="true" autoplay="3000" class="focus">
+
+		<ion-slide>
+			<img src="../../assets/imgs/slide01.png" />
+		</ion-slide>
+
+		<ion-slide>
+			<img src="../../assets/imgs/slide02.png" />
+		</ion-slide>
+
+		<ion-slide>
+			<img src="../../assets/imgs/slide03.jpg" />
+		</ion-slide>
+	</ion-slides>
+	<!-- E轮播图 -->
+	<!-- S精品推荐 -->
+	<section class="recommend">
+		<div class="title">
+			精品推荐
+		</div>
+		<div class="product">
+        <ion-scroll scrollX="true">
+        	<ul class="clearfix" [ngStyle]="{'width':recListWidth}">
+        		<li *ngFor="let item of recList">
+        			<img src="{{item.pic}}" />
+        			<p>{{item.title}}</p>
+        		</li>
+        	</ul>
+        </ion-scroll>
+		</div>
+	</section>
+	<!-- E精品推荐 -->
 </ion-content>
