@@ -15,7 +15,7 @@
 		</section>
 		<section class="cate-right">
 			<ion-row>
-				<ion-col col-4 *ngFor="let item of rightList">
+				<ion-col col-4 *ngFor="let item of rightList" [navPush]="ProductlistPage" [navParams]="{'cid':item['_id']}">
 					<img [src]="config.apiUrl+item.pic" />
 					<p>{{item.title}}</p>
 				</ion-col>
