@@ -1,11 +1,25 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      分类
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+	<div class="cate">
+		<section class="cate-left">
+			<ion-list>
+				<ion-item *ngFor="let item of leftCate">{{item.title}}</ion-item>
+			</ion-list>
+		</section>
+		<section class="cate-right">
+			<ion-row>
+				<ion-col col-4 *ngFor="let item of rightList">
+					<img [src]="config.apiUrl+item.pic" />
+					<p>{{item.title}}</p>
+				</ion-col>
+			</ion-row>
+		</section>
+	</div>
 </ion-content>
