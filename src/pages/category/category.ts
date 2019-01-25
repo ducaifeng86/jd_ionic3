@@ -9,7 +9,6 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
 export class CategoryPage {
 	public leftCate = [];
 	public rightList = [];
-	public pid = '';
   constructor(public navCtrl: NavController,public config:ConfigProvider,public httpService:HttpServicesProvider) {
 		this.getLeftData();//左侧分类数据
   }
@@ -17,15 +16,14 @@ export class CategoryPage {
 		let apiUrl = 'api/pcate';
 		this.httpService.requestData(apiUrl,(data)=>{
 			this.leftCate = data.result;
-			this.getRightData(this.leftCate[0]['_id'])
+			this.getRightData(this.leftCate[0]['_id']);
 		});
 	}
 	
 	getRightData(pid){
-		let apiUrl = 'api/pcate?pid='+pid;
+		let apiUrl = `api/pcate?pid=${pid}`;
 		this.httpService.requestData(apiUrl,(data)=>{
 			this.rightList = data.result;
-			console.log(data.result);
 		});
 	}
 	
