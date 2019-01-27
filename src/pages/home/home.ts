@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ConfigProvider } from '../../providers/config/config';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import {Http,Jsonp} from "@angular/http";
+import { SearchPage } from '../search/search';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -36,5 +37,9 @@ export class HomePage {
   	this.httpService.requestData('api/plist?is_best=1',(data)=>{
   		this.hotList = data.result;
   	});
+  }
+  //跳转到搜索页面
+  goSearch(){
+  	this.navCtrl.push(SearchPage);
   }
 }
