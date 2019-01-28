@@ -11,12 +11,18 @@ import { HomePage } from '../pages/home/home';
 import { MyPage } from '../pages/my/my';
 import { TabsPage } from '../pages/tabs/tabs';
 
+<<<<<<< HEAD
 import { ProductlistPage } from '../pages/productlist/productlist';
+=======
+//搜索页面
+import { SearchPage } from '../pages/search/search';
+>>>>>>> ab2becc89daa791b86b2cf209fb179225483de87
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConfigProvider } from '../providers/config/config';
 import { HttpServicesProvider } from '../providers/http-services/http-services';
+import { StorageProvider } from '../providers/storage/storage';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,11 @@ import { HttpServicesProvider } from '../providers/http-services/http-services';
     HomePage,
     MyPage,
     TabsPage,
+<<<<<<< HEAD
     ProductlistPage
+=======
+    SearchPage,
+>>>>>>> ab2becc89daa791b86b2cf209fb179225483de87
   ],
   imports: [
     BrowserModule,
@@ -45,14 +55,19 @@ import { HttpServicesProvider } from '../providers/http-services/http-services';
     HomePage,
     MyPage,
     TabsPage,
+<<<<<<< HEAD
     ProductlistPage
+=======
+    SearchPage,
+>>>>>>> ab2becc89daa791b86b2cf209fb179225483de87
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigProvider,
-    HttpServicesProvider
+    HttpServicesProvider,
+    StorageProvider
   ]
 })
 export class AppModule {}
